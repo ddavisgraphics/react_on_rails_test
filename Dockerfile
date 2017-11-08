@@ -6,7 +6,7 @@ RUN apt-get update \
                           gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
 
 # Node.js
-RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
     && apt-get install -y nodejs
 
 # yarn
@@ -26,4 +26,5 @@ ENV RACK_ENV development
 
 WORKDIR /home/test
 ADD ./test_project /home/test
-RUN bundle install --jobs=4 --retry=3 && bundle exec rails webpacker:install
+RUN bundle install --jobs=4 --retry=3 
+RUN bin/rails webpacker:install
