@@ -1,0 +1,24 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7.16
+    container_name: db
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=test
+  web:
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    container_name: rails_react
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    environment:
+      - SECRET_KEY_BASE=test128485
+      - MYSQL_PASSWORD=test
+    volumes:
+      - ./test_project:/home/test
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
