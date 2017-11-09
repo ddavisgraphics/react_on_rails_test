@@ -2,6 +2,11 @@
   "name": "test_project",
   "private": true,
   "dependencies": {
+    "@rails/webpacker": "^3.0.2",
+    "coffeescript": "1.12.7",
     "react": "^16.0.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.9.4"
   }
 }
