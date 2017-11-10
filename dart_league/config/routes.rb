@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # root
+  root 'public#index'
+  
+  # admin
   namespace :admin do
     resources :players
   end

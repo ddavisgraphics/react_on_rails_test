@@ -2,7 +2,7 @@ FROM ruby:2.4
 
 # Install capybara-webkit deps
 RUN apt-get update \
-    && apt-get install -y xvfb qt5-default libqt5webkit5-dev \
+    && apt-get install -y xvfb git qt5-default libqt5webkit5-dev \
                           gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
 
 # Node.js
@@ -19,12 +19,13 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -\
 RUN \
 	gem install bundler \
 	&& gem install rails \
-	&& mkdir -p /home/test
+	&& mkdir -p /home/test_project
 
 ENV RAILS_ENV development
 ENV RACK_ENV development
 
-WORKDIR /home/test
-ADD ./test_project /home/test
+WORKDIR /home/test_project
+ADD ./test_project /home/test_project
 RUN bundle install --jobs=4 --retry=3 
-RUN bin/rails webpacker:install
+RUN bundle exec bin/rails app:update:bin
+RUN bundle exec rails webpacker:install

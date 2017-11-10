@@ -1,0 +1,15 @@
+<!-- 
+=====================================================================
+Inserts JS for the React Pack into the page head.  
+===================================================================== 
+--> 
+<% content_for :head do %>
+  <%= javascript_pack_tag 'test' %>
+<% end %>
+
+<h1> Homepage </h1> 
+<p> Server side load here </p> 
+
+
+<h2> React Load </h2>  
+<%= react_component('Test', {name: "Something Cool Here"}) %>
