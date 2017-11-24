@@ -19,13 +19,11 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -\
 RUN \
 	gem install bundler \
 	&& gem install rails \
-	&& mkdir -p /home/test_project
+	&& mkdir -p /home/darts_league
 
 ENV RAILS_ENV development
 ENV RACK_ENV development
 
-WORKDIR /home/test_project
-ADD ./test_project /home/test_project
+WORKDIR /home/darts_league
+ADD ./darts_league /home/darts_league
 RUN bundle install --jobs=4 --retry=3 
-RUN bundle exec bin/rails app:update:bin
-RUN bundle exec rails webpacker:install
