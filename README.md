@@ -23,10 +23,13 @@ Things you may want to cover:
 
 * ...
 
+# debugging app 
+# ---------------------------------------------------------------------------------------------
+
 
 # create and empty docker container 
 # ---------------------------------------------------------------------------------------------
-docker run --rm -v $(pwd):/usr/src -w /usr/src -ti ruby:2.4 bash ; cd my_app
+docker run --rm -v $(pwd):/usr/src -w /usr/src -ti djdaviswvu/rails_react_docker bash ; cd my_app
 
 # install rails 
 # ---------------------------------------------------------------------------------------------
