@@ -23,6 +23,11 @@ Things you may want to cover:
 
 * ...
 
+# Running Webpack 
+# ---------------------------------------------------------------------------------------------
+- ssh into the box via `bash -c "clear && docker exec -it rails_react bash"` 
+- then use  `webpack -w` to watch the files from webpack.
+
 # debugging app 
 # ---------------------------------------------------------------------------------------------
 
